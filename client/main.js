@@ -3,11 +3,11 @@ if (Meteor.isClient) {
     console.log("Red stapler client started");
   });  
   
-  Template.leaderboard.offices = function () {
+  Template.officelist.offices = function () {
     return Offices.find({}, {sort: {name: 1}});
   };
 
-  Template.leaderboard.selected_name = function () {
+  Template.officelist.selected_name = function () {
     var office = Offices.findOne(Session.get("selected_office"));
     return office && office.name;
   };
@@ -16,7 +16,7 @@ if (Meteor.isClient) {
     return Session.equals("selected_office", this._id) ? "selected" : '';
   };
 
-  Template.leaderboard.events({
+  Template.officelist.events({
     'click input.inc': function () {
       Offices.update(Session.get("selected_office"), {$inc: {score: 5}});
     }
