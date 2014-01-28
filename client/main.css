@@ -15,32 +15,19 @@ body {
     margin: 0 auto;    
 }
 
-.player {
+.office {
     cursor: pointer;
     padding: 5px;
 }
 
-.player .name {
+.office .name {
     display: inline-block;
     width: 300px;
     font-size: 1.75em;
 }
 
-.player .score {
-    display: inline-block;
-    width: 100px;
-    text-align: right;
-    font-size: 2em;
-    font-weight: bold;
-    color: #777;
-}
-
-.player.selected {
+.office.selected {
     background-color: yellow;
-}
-
-.player.selected .score {
-    color: black;
 }
 
 .details, .none {

@@ -10,8 +10,8 @@
 
 <template name="leaderboard">
   <div class="leaderboard">
-    {{#each players}}
-      {{> player}}
+    {{#each offices}}
+      {{> office}}
     {{/each}}
   </div>
 
@@ -25,10 +25,9 @@
   {{/if}}
 </template>
 
-<template name="player">
-  <div class="player {{selected}}">
+<template name="office">
+  <div class="office {{selected}}">
     <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
   </div>
 </template>
 

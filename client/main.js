@@ -3,28 +3,28 @@ if (Meteor.isClient) {
     console.log("Red stapler client started");
   });  
   
-  Template.leaderboard.players = function () {
+  Template.leaderboard.offices = function () {
     return Offices.find({}, {sort: {name: 1}});
   };
 
   Template.leaderboard.selected_name = function () {
-    var player = Offices.findOne(Session.get("selected_player"));
-    return player && player.name;
+    var office = Offices.findOne(Session.get("selected_office"));
+    return office && office.name;
   };
 
-  Template.player.selected = function () {
-    return Session.equals("selected_player", this._id) ? "selected" : '';
+  Template.office.selected = function () {
+    return Session.equals("selected_office", this._id) ? "selected" : '';
   };
 
   Template.leaderboard.events({
     'click input.inc': function () {
-      Offices.update(Session.get("selected_player"), {$inc: {score: 5}});
+      Offices.update(Session.get("selected_office"), {$inc: {score: 5}});
     }
   });
 
-  Template.player.events({
+  Template.office.events({
     'click': function () {
-      Session.set("selected_player", this._id);
+      Session.set("selected_office", this._id);
     }
   });
 }
