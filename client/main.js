@@ -18,7 +18,11 @@ if (Meteor.isClient) {
 
   Template.officelist.events({
     'click input.inc': function () {
-      Offices.update(Session.get("selected_office"), {$inc: {score: 5}});
+      selected_office = Offices.findOne(Session.get("selected_office"));
+      console.log("Selected office: " + selected_office);
+      rows = selected_office.rows;
+      rows.push({"number": rows.length + 1});
+      Offices.update(Session.get("selected_office"), {$set: {rows: rows}});
     }
   });
 
