@@ -28,6 +28,15 @@
 <template name="office">
   <div class="office {{selected}}">
     <span class="name">{{name}}</span>
+    <span class="rows">
+      <table>
+        <tr><th>Row</th></tr>
+      {{#each rows}}
+        <tr><td>
+        {{number}}
+        </td></tr>
+      {{/each}}
+      </table>
+    </span>
   </div>
 </template>
-

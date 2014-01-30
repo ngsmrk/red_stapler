@@ -4,7 +4,7 @@ if (Meteor.isServer) {
     if (Offices.find().count() === 0) {
       var names = ["Office 1", "Office 2"];
       for (var i = 0; i < names.length; i++)
-        Offices.insert({name: names[i]});
+        Offices.insert({name: names[i], rows: [{number: 1}]});
     }
   });
 }
