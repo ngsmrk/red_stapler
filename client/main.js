@@ -18,8 +18,8 @@ if (Meteor.isClient) {
 
   Template.officelist.events({
     'click input.inc': function () {
+      console.log("Selected office: " + Session.get("selected_office"));
       selected_office = Offices.findOne(Session.get("selected_office"));
-      console.log("Selected office: " + selected_office);
       rows = selected_office.rows;
       rows.push({"number": rows.length + 1});
       Offices.update(Session.get("selected_office"), {$set: {rows: rows}});
@@ -27,8 +27,20 @@ if (Meteor.isClient) {
   });
 
   Template.office.events({
-    'click': function () {
+    'click span.name': function () {
+      console.log("Office click: " + this._id);
       Session.set("selected_office", this._id);
     }
   });
+
+  Template.row.events({
+    'click span.row_number': function () {
+      console.log("Row click: " + this._id);
+      Session.set("selected_row", this._id);
+    }
+  });
+  
+  Template.row.selected = function () {
+    return Session.equals("selected_row", this._id) ? "selected" : '';
+  };  
 }

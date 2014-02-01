@@ -30,13 +30,19 @@
     <span class="name">{{name}}</span>
     <span class="rows">
       <table>
-        <tr><th>Row</th></tr>
+        <tr><th>Rows</th></tr>
       {{#each rows}}
-        <tr><td>
-        {{number}}
-        </td></tr>
+        {{> row}}
       {{/each}}
       </table>
     </span>
   </div>
+</template>
+
+<template name="row">
+  <tr><td>
+    <div class="desk_row {{selected}}">
+      <span class="row_number">Row {{number}}</span>
+    </div>
+  </td></tr>
 </template>
