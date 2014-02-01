@@ -10,11 +10,6 @@ body {
     user-select: none;
 }
 
-#outer {
-    width: 600px;
-    margin: 0 auto;    
-}
-
 .office {
     cursor: pointer;
     padding: 5px;
@@ -26,8 +21,9 @@ body {
     font-size: 1.75em;
 }
 
-.office.selected {
-    background-color: yellow;
+.name.selected {
+    background-color: #04C;
+    color:#FFF;
 }
 
 .details, .none {
@@ -36,8 +32,7 @@ body {
     border-style: dashed none none none;
     border-color: #ccc;
     border-width: 4px;
-    margin: 50px 10px;
-    padding: 10px 0px;
+    padding: 10px 10px;
 }
 
 .none {
