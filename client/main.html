@@ -34,10 +34,9 @@
     <span class="name {{selected}}">{{name}}</span>
     <span class="rows">
       <table class="table table-hover table-bordered">
-        <tr><th>Rows</th></tr>
-      {{#each rows}}
-        {{> row}}
-      {{/each}}
+        {{#each rows}}
+          {{> row}}
+        {{/each}}
       </table>
     </span>
   </div>
@@ -46,7 +45,18 @@
 <template name="row">
   <tr><td>
     <div class="desk_row {{selected}}">
-      <span class="row_number">Row {{number}}</span>
+      <span class="row_number">Row: {{number}}</span>
+    </div>
+  </td></tr>
+  {{#each desks}}
+  {{> desk}}
+  {{/each}}
+</template>
+
+<template name="desk">
+  <tr><td>
+    <div class="desk">
+      <span class="">Occupant: {{occupant}}</span>
     </div>
   </td></tr>
 </template>
