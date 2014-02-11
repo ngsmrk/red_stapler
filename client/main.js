@@ -23,6 +23,14 @@ if (Meteor.isClient) {
             rows = selected_office.rows;
             rows.push({"number": rows.length + 1});
             Offices.update(Session.get("selected_office"), {$set: {rows: rows}});
+        },
+
+        'click input.desk': function () {
+            console.log("Selected office: " + Session.get("selected_office"));
+            selected_office = Offices.findOne(Session.get("selected_office"));
+            var rowNumber = document.getElementById('rowNumber').value;
+            var occupant = document.getElementById('deskOccupant').value;
+            console.log("Adding occupant: " + occupant + " to desk in row: " + rowNumber + " in office: " + selected_office._id);
         }
     });
 
