@@ -1,62 +1,66 @@
 <head>
-  <title>Office Space</title>
+    <title>Office Space</title>
 </head>
 
 <body>
-  <div class="container" id="outer">
+<div class="container" id="outer">
     {{> officelist}}
-  </div>
+</div>
 </body>
 
 <template name="officelist">
-  <div class="officelist">
-    {{#each offices}}
-      {{> office}}
-    {{/each}}
-  </div>
+    <div class="officelist">
+        {{#each offices}}
+        {{> office}}
+        {{/each}}
+    </div>
 
-  {{#if selected_name}}
-    <form role="form"> 
-      <div class="details form-group">
-        <div class="name">{{selected_name}}</div>
-      </div>
-        <div class="form-group"> 
-        <input type="button" class="inc btn btn-primary" value="Add a row of desks" />
-      </div>
-  </form>
-  {{else}}
-  <div class="none">Click an office to select</div>
-  {{/if}}
+    {{#if selected_name}}
+    <form role="form">
+        <div class="details form-group">
+            <div class="name">{{selected_name}}</div>
+        </div>
+        <div class="form-group">
+            <input type="button" class="inc btn btn-primary" value="Add a row of desks"/>
+        </div>
+    </form>
+    {{else}}
+    <div class="none">Click an office to select</div>
+    {{/if}}
 </template>
 
 <template name="office">
-  <div class="office">
-    <span class="name {{selected}}">{{name}}</span>
+    <div class="office">
+        <span class="name {{selected}}">{{name}}</span>
     <span class="rows">
       <table class="table table-hover table-bordered">
-        {{#each rows}}
+          {{#each rows}}
           {{> row}}
-        {{/each}}
+          {{/each}}
       </table>
     </span>
-  </div>
+    </div>
 </template>
 
 <template name="row">
-  <tr><td>
-    <div class="desk_row {{selected}}">
-      <span class="row_number">Row: {{number}}</span>
-    </div>
-  </td></tr>
-  {{#each desks}}
-  {{> desk}}
-  {{/each}}
+    <tr>
+        <td>
+            <div class="desk_row {{selected}}">
+                <span class="row_number">Row: {{number}}</span>
+            </div>
+        </td>
+    </tr>
+    {{#each desks}}
+    {{> desk}}
+    {{/each}}
 </template>
 
 <template name="desk">
-  <tr><td>
-    <div class="desk">
-      <span class="">Occupant: {{occupant}}</span>
-    </div>
-  </td></tr>
+    <tr>
+        <td>
+            <div class="desk">
+                <span class="">Occupant: {{occupant}}</span>
+            </div>
+        </td>
+    </tr>
 </template>
