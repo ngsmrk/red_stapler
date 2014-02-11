@@ -32,15 +32,4 @@ if (Meteor.isClient) {
       Session.set("selected_office", this._id);
     }
   });
-
-  Template.row.events({
-    'click span.row_number': function () {
-      console.log("Row click: " + this._id);
-      Session.set("selected_row", this._id);
-    }
-  });
-  
-  Template.row.selected = function () {
-    return Session.equals("selected_row", this._id) ? "selected" : '';
-  };  
 }
